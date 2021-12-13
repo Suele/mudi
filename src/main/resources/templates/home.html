@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - List Product</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container" th:each="listProducts : ${listProductRequest}">
+    <div class="card">
+        <div class="row">
+            <div class="col-12 col-sm-8">
+                <h5 class="card-header card-title">Produto <span th:text="${listProducts.productName}"></span></h5>
+                <div class="card-body">
+                    <p class="card-text">Valor Negociado: <span th:text="${listProducts.price}"></span></p>
+                    <p class="card-text">Data da Entrega: <span th:text="${listProducts.deliveryDate}"></span></p>
+                    <p class="card-text">Descrição do Produto<textarea class="form-control" th:text="${listProducts.description}"></textarea></p>
+                    <p class="card-text">Url Produto: <input class="form-control" th:value="${listProducts.urlProduct}"/></p>
+                </div>
+            </div>
+            <div class="col-12 mb-3 col-sm-4">
+                <img class="img-thumbnail" th:src="${listProducts.urlImage}" width="200"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
