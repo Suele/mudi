@@ -12,18 +12,19 @@
 <body>
 <div class="container" th:each="listProducts : ${listProductRequest}">
     <div class="card">
+        <h5 class="card-header card-title">Produto <span th:text="${listProducts.productName}"></span></h5>
         <div class="row">
             <div class="col-12 col-sm-8">
-                <h5 class="card-header card-title">Produto <span th:text="${listProducts.productName}"></span></h5>
                 <div class="card-body">
                     <p class="card-text">Valor Negociado: <span th:text="${listProducts.price}"></span></p>
                     <p class="card-text">Data da Entrega: <span th:text="${listProducts.deliveryDate}"></span></p>
-                    <p class="card-text">Descrição do Produto<textarea class="form-control" th:text="${listProducts.description}"></textarea></p>
-                    <p class="card-text">Url Produto: <input class="form-control" th:value="${listProducts.urlProduct}"/></p>
+                    <p class="card-text">Descrição do Produto<textarea class="form-control" th:text="${listProducts.description}"></textarea>
+                    </p>
+                    <p class="card-text">Url Produto <input class="form-control" th:value="${listProducts.urlProduct}"/></p>
                 </div>
             </div>
-            <div class="col-12 mb-3 col-sm-4">
-                <img class="img-thumbnail" th:src="${listProducts.urlImage}" width="200"/>
+            <div class="col-12 mb-3 col-sm-4 my-5">
+                <img class="img-thumbnail mx-auto d-block" th:src="${listProducts.urlImage}" width="200"/>
             </div>
         </div>
     </div>
