@@ -57,3 +57,5 @@ build/
 ### VS Code ###
 .vscode/
 >>>>>>> 021e2ae (Adiciona as dependencias do spring MVC funcionar junto com o thymeleaf.)
+
+mysqlVolume/
