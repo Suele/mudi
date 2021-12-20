@@ -45,4 +45,6 @@ public class HomeControllerTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/home"))
 				.andExpect(MockMvcResultMatchers.view().name("home")).andReturn().getResponse();
 	}
+	// TODO testar pagina home não for encontrada.
+	// TODO Lista de produtos estiver vazia.
 }

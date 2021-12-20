@@ -13,6 +13,18 @@ public class ProductRequestService {
 	private ProductRequestRepository productRequestRepository;
 
 	public List<ProductRequestModel> listProducts() {
+		if (productRequestRepository.findAll().size() == 0) {
+			throw new RuntimeException("Nenhum produto foi encontrado.");
+		}
 		return productRequestRepository.findAll();
+	}
+
+	public ProductRequestModel registerProduct(ProductRequestModel newProduct) {
+		if (newProduct.getProductName().isBlank() ||
+				newProduct.getUrlProduct().isBlank() ||
+				newProduct.getUrlImage().isBlank() || newProduct.getDescription().isBlank()) {
+			throw new NullPointerException("Verifique se todos os campos do formulario foram preenchidos.");
+		}
+		return productRequestRepository.save(newProduct);
 	}
 }
