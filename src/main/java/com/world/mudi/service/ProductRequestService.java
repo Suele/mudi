@@ -20,11 +20,6 @@ public class ProductRequestService {
 	}
 
 	public ProductRequestModel registerProduct(ProductRequestModel newProduct) {
-		if (newProduct.getProductName().isBlank() ||
-				newProduct.getUrlProduct().isBlank() ||
-				newProduct.getUrlImage().isBlank() || newProduct.getDescription().isBlank()) {
-			throw new NullPointerException("Verifique se todos os campos do formulario foram preenchidos.");
-		}
 		return productRequestRepository.save(newProduct);
 	}
 }

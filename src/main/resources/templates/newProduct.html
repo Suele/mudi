@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Novos Produtos</title>
+    <title>Cadastrar Novo Produto</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -12,38 +12,52 @@
 <body>
 <div class="container">
     <!-- Formulario para cadastrar novo produto -->
-    <form class="my-3" name="newProduct" title="Formulario para cadastrar novos produtos"
-          action="/product/new-product-register" method="post">
-        <div class="mb-3">
-            <label class="form-label" for="productName">Produto</label>
-            <input class="form-control" name="productName" placeholder="Nome do Produto"/>
-            <small class="form-text">Adicione o nome do produto que você deseja</small>
-        </div>
+    <div class="card my-3">
+        <form th:object="${registerNewProductDTO}" class="my-3 mx-3 " name="newProduct"
+              title="Formulario para cadastrar novos produtos"
+              action="/product/new-product-register" method="post">
 
-        <div class="mb-3">
-            <label class="form-label" for="url">URL</label>
-            <input class="form-control" name="urlProduct" placeholder="URL do Produto"/>
-            <small class="form-text">Procure em um site o produto que você deseja e cole a URL aqui.</small>
-        </div>
+            <div class="form-group">
+                <label class="form-label" for="productName">Produto</label>
+                <input th:field="*{productName}" th:errorclass="is-invalid" type="text" class="form-control"
+                       placeholder="Nome do Produto"/>
+                <small class="form-text text-muted">Adicione o nome do produto que você deseja</small>
+                <div th:errors="*{productName}" class="invalid-feedback"></div>
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" for="productImage">Imagem</label>
-            <input class="form-control" name="urlImage" placeholder="Imagem do Produto"/>
-            <small class="form-text">Adicione uma imagem do produto.</small>
-        </div>
+            <div class="form-group">
+                <label class="form-label" for="urlProduct">URL do Produto</label>
+                <input th:field="*{urlProduct}" th:errorclass="is-invalid" type="url" class="form-control"
+                       placeholder="URL do Produto"/>
+                <small class="form-text text-muted">Procure em um site o produto que você deseja e cole a URL
+                    aqui.</small>
+                <div th:errors="*{urlProduct}" class="invalid-feedback"></div>
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" for="productDescription">Descrição</label>
-            <textarea class="form-control" name="description" placeholder="Descrição do Produto"></textarea>
-            <small class="form-text">Adicione detalhes que você acha importantes para ajudar o comprador.</small>
-        </div>
+            <div class="form-group ">
+                <label class="form-label" for="urlImage">URL da Imagem</label>
+                <input th:field="*{urlImage}" th:errorclass="is-invalid" type="url" class="form-control"
+                       placeholder="URL da imagem do Produto"/>
+                <small class="form-text text-muted">Adicione a URL que contenha apenas a imagem do produto.</small>
+                <div th:errors="*{urlImage}" class="invalid-feedback"></div>
+            </div>
 
-        <div class="mb-3">
-            <button class="btn btn-outline-success" type="submit" title="cadastrar novo produto">Cadastrar Novo
-                Produto
-            </button>
-        </div>
-    </form>
+            <div class="form-group">
+                <label class="form-label" for="description">Descrição</label>
+                <textarea th:field="*{description}" th:errorclass="is-invalid" class="form-control"
+                          placeholder="Descrição do Produto"></textarea>
+                <small class="form-text text-muted">Adicione detalhes que você acha importantes para ajudar o
+                    comprador.</small>
+                <div th:errors="*{description}" class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-outline-success" type="submit" title="cadastrar novo produto">Cadastrar Novo
+                    Produto
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>
