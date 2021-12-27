@@ -13,9 +13,6 @@ public class ProductRequestService {
 	private ProductRequestRepository productRequestRepository;
 
 	public List<ProductRequestModel> listProducts() {
-		if (productRequestRepository.findAll().size() == 0) {
-			throw new RuntimeException("Nenhum produto foi encontrado.");
-		}
 		return productRequestRepository.findAll();
 	}
 
