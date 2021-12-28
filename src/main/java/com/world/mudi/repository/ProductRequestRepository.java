@@ -4,10 +4,6 @@ import com.world.mudi.model.ProductRequestModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
-
 /**
  * @author Suele Guimaraes
  * Como está interface extende outra interface que tem diversos metodos para consultar e persistir dados
