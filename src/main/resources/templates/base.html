@@ -29,15 +29,19 @@
     a {
        color: #ffffff;
     }
-
     </style>
 </head>
 
-<!-- Logo da pagina-->
+<!-- Logo da pagina e as opções de login e logout-->
 <div th:fragment="logo-page" class="logo mb-2 p-3 d-flex justify-content-between">
     <a href="/home" class="name-app navbar-brand">MUDI</a>
     <span class="mt-3">
         <a href="/login" sec:authorize="!isAuthenticated()" class="navbar-brand">Login</a>
-        <a href="logout" sec:authorize="isAuthenticated()" class="navbar-brand">Logout</a>
     </span>
+    <div sec:authorize="isAuthenticated()" class="navbar-brand">
+        <a href="javascript: document.logoutForm.submit()">Logout</a>
+        <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+            <input hidden type="submit" value="Logout"/>
+        </form>
+    </div>
 </div>
