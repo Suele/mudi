@@ -3,43 +3,47 @@ package com.world.mudi.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity(name = "ProductRequestEntity")
-@Table(name = "product_request")
-public class ProductRequestModel {
+@Entity(name = "ProductEntity")
+@Table(name = "product")
+public class ProductModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name = "product_id", nullable = false)
+	private Long productId;
 
-	@Column(name = "product_name")
+	@Column(name = "product_name", nullable = false)
 	private String productName;
 
+	@Column(nullable = false)
 	private Double price;
 
-	@Column(name = "delivery_date")
-	private LocalDate deliveryDate;
-
+	@Column(nullable = false)
 	private String description;
 
-	@Column(name = "url_product")
+	@Column(name = "url_product", nullable = false)
 	private String urlProduct;
 
-	@Column(name = "url_image")
+	@Column(name = "url_image", nullable = false)
 	private String urlImage;
 
-	public ProductRequestModel() {
+	@ManyToOne
+	@JoinColumn(name = "delivery_id", nullable = false)
+	private DeliveryModel delivery;
+
+	public ProductModel() {
 	}
 
-	public ProductRequestModel(String productName, LocalDate deliveryDate,
-							   Double price, String description, String urlProduct, String urlImage) {
+	public ProductModel(String productName, LocalDate deliveryDate,
+						Double price, String description, String urlProduct, String urlImage) {
 		this.productName = productName;
 		this.price = price;
-		this.deliveryDate = deliveryDate;
 		this.description = description;
 		this.urlProduct = urlProduct;
 		this.urlImage = urlImage;
 	}
 
-	public ProductRequestModel(String productName, String urlProduct, String urlImage, String description) {
+	public ProductModel(String productName, String urlProduct,
+						String urlImage, String description) {
 		this.productName = productName;
 		this.urlProduct = urlProduct;
 		this.urlImage = urlImage;
@@ -60,14 +64,6 @@ public class ProductRequestModel {
 
 	public void setPrice(Double price) {
 		this.price = price;
-	}
-
-	public LocalDate getDeliveryDate() {
-		return deliveryDate;
-	}
-
-	public void setDeliveryDate(LocalDate deliveryDate) {
-		this.deliveryDate = deliveryDate;
 	}
 
 	public String getDescription() {
@@ -94,11 +90,15 @@ public class ProductRequestModel {
 		this.urlImage = urlImage;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+	@Override
+	public String toString() {
+		return "Product{" +
+				"productId:" + productId +
+				", productName:'" + productName + '\'' +
+				", price:" + price +
+				", description:'" + description + '\'' +
+				", urlProduct:'" + urlProduct + '\'' +
+				", urlImage:" + urlImage + '\'' +
+				'}';
 	}
 }

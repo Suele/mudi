@@ -1,6 +1,6 @@
 package com.world.mudi.dto;
 
-import com.world.mudi.model.ProductRequestModel;
+import com.world.mudi.model.ProductModel;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -54,8 +54,8 @@ public class RegisterNewProductDTO {
 		this.description = description;
 	}
 
-	public ProductRequestModel toNewProduct() {
-		ProductRequestModel productRequestModel = new ProductRequestModel(this.productName,
+	public ProductModel toNewProduct() {
+		ProductModel productRequestModel = new ProductModel(this.productName,
 				this.urlProduct, this.urlImage, this.description);
 		return productRequestModel;
 	}

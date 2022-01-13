@@ -1,6 +1,6 @@
 package com.world.mudi.controller;
 
-import com.world.mudi.model.ProductRequestModel;
+import com.world.mudi.model.ProductModel;
 import com.world.mudi.service.ProductRequestService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +33,13 @@ public class HomeControllerTest {
 
 	@Test
 	public void list_products_registered() throws Exception {
-		ProductRequestModel productRequest1 = new ProductRequestModel("nomeDoProduto", LocalDate.now(),
+		ProductModel productRequest1 = new ProductModel("nomeDoProduto", LocalDate.now(),
 				670.0, "description", "urlProduct", "urlImage");
 
-		ProductRequestModel productRequest2 = new ProductRequestModel("nomeDoProduto", LocalDate.now(),
+		ProductModel productRequest2 = new ProductModel("nomeDoProduto", LocalDate.now(),
 				700.0, "description", "urlProduct", "urlImage");
 
-		List<ProductRequestModel> listProduct = Arrays.asList(productRequest1, productRequest2);
+		List<ProductModel> listProduct = Arrays.asList(productRequest1, productRequest2);
 
 		when(this.productRequestService.listProducts()).thenReturn(listProduct).getMock();
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/home"))

@@ -1,6 +1,6 @@
 package com.world.mudi.service;
 
-import com.world.mudi.model.ProductRequestModel;
+import com.world.mudi.model.ProductModel;
 import com.world.mudi.repository.ProductRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +12,11 @@ public class ProductRequestService {
 	@Autowired
 	private ProductRequestRepository productRequestRepository;
 
-	public List<ProductRequestModel> listProducts() {
+	public List<ProductModel> listProducts() {
 		return productRequestRepository.findAll();
 	}
 
-	public ProductRequestModel registerProduct(ProductRequestModel newProduct) {
+	public ProductModel registerProduct(ProductModel newProduct) {
 		return productRequestRepository.save(newProduct);
 	}
 }

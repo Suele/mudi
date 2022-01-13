@@ -1,6 +1,6 @@
 package com.world.mudi.repository;
 
-import com.world.mudi.model.ProductRequestModel;
+import com.world.mudi.model.ProductModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface ProductRequestRepository extends JpaRepository<ProductRequestModel, Long> {
+public interface ProductRequestRepository extends JpaRepository<ProductModel, Long> {
 }

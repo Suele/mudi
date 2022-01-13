@@ -16,7 +16,7 @@ public class UserModel {
 	private String password;
 
 	@Column(nullable = false)
-	private Boolean enabled;
+		private Boolean enabled;
 
 	public UserModel() {
 	}
