@@ -1,22 +1,23 @@
 package com.world.mudi.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
-@Entity
+@Entity(name = "UserEntity")
 @Table(name = "users")
 public class UserModel {
 	@Id
-	@Column(nullable = false)
+	@Column(length = 90, unique = true, nullable = false)
 	private String username;
 
-	@Column(nullable = false)
+	@Column(length = 100, unique = true, nullable = false)
 	private String password;
 
 	@Column(nullable = false)
-		private Boolean enabled;
+	private Boolean enabled;
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<ProductModel> products;
 
 	public UserModel() {
 	}
@@ -49,5 +50,23 @@ public class UserModel {
 
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public List<ProductModel> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<ProductModel> products) {
+		this.products = products;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"username:'" + username + '\'' +
+				", password:'" + password + '\'' +
+				", enabled:" + enabled +
+				", products:" + products +
+				'}';
 	}
 }

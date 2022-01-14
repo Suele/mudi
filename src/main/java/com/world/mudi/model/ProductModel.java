@@ -11,24 +11,28 @@ public class ProductModel {
 	@Column(name = "product_id", nullable = false)
 	private Long productId;
 
-	@Column(name = "product_name", nullable = false)
+	@Column(name = "product_name", length = 50, nullable = false)
 	private String productName;
 
 	@Column(nullable = false)
 	private Double price;
 
-	@Column(nullable = false)
+	@Column(length = 80, nullable = false)
 	private String description;
 
-	@Column(name = "url_product", nullable = false)
+	@Column(name = "url_product", length = 170, nullable = false)
 	private String urlProduct;
 
-	@Column(name = "url_image", nullable = false)
+	@Column(name = "url_image", length = 170, nullable = false)
 	private String urlImage;
 
 	@ManyToOne
 	@JoinColumn(name = "delivery_id", nullable = false)
 	private DeliveryModel delivery;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id", nullable = false)
+	private UserModel user;
 
 	public ProductModel() {
 	}
@@ -48,6 +52,14 @@ public class ProductModel {
 		this.urlProduct = urlProduct;
 		this.urlImage = urlImage;
 		this.description = description;
+	}
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
 	}
 
 	public String getProductName() {
@@ -90,6 +102,22 @@ public class ProductModel {
 		this.urlImage = urlImage;
 	}
 
+	public DeliveryModel getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(DeliveryModel delivery) {
+		this.delivery = delivery;
+	}
+
+	public UserModel getUser() {
+		return user;
+	}
+
+	public void setUser(UserModel user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "Product{" +
@@ -99,6 +127,8 @@ public class ProductModel {
 				", description:'" + description + '\'' +
 				", urlProduct:'" + urlProduct + '\'' +
 				", urlImage:" + urlImage + '\'' +
+				", delivery:" + delivery +
+				", user:" + user.getUsername() +
 				'}';
 	}
 }
