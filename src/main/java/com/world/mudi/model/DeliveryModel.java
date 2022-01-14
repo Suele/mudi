@@ -16,6 +16,7 @@ public class DeliveryModel {
 	private LocalDate deliveryDate;
 
 	@Column(name = "state_delivery", nullable = false)
+	@Enumerated(EnumType.STRING)
 	private StateDelivery stateDelivery;
 
 	@OneToMany(
