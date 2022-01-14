@@ -23,3 +23,8 @@ Tela onde é possível visualizar os produtos que foram cadastrados e o seu stat
 Onde usuarios cadastrados podem fazer login para ter acesso a aplicação.
 ![Tela de Login](images-views/view-login.png)
 <br></br>
+
+##### Modelo Entidade e Relacionamento 
+A imagem abaixo ilustra o relacionamento entre as entidades os seus atributos e tipos.
+![Modelo Entidade e Relacionamento](images-views/mudi-bd.drawio.png)
+<br></br>
