@@ -128,7 +128,7 @@ public class ProductModel {
 				", urlProduct:'" + urlProduct + '\'' +
 				", urlImage:" + urlImage + '\'' +
 				", delivery:" + delivery +
-				", user:" + user.getUsername() +
+				", user:" + user +
 				'}';
 	}
 }

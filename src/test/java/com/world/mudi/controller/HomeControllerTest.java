@@ -10,9 +10,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.security.Principal;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 
@@ -41,7 +43,9 @@ public class HomeControllerTest {
 
 		List<ProductModel> listProduct = Arrays.asList(productRequest1, productRequest2);
 
-		when(this.productRequestService.listProducts()).thenReturn(listProduct).getMock();
+
+		Principal principal = null;
+		when(this.productRequestService.listProducts(principal.getName())).thenReturn(listProduct).getMock();
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/home"))
 				.andExpect(MockMvcResultMatchers.view().name("home")).andReturn().getResponse();
 	}
