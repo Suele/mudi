@@ -5,7 +5,6 @@ import com.world.mudi.model.StateDelivery;
 import com.world.mudi.model.UserModel;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class RegisterNewProductDTO {
@@ -27,7 +26,6 @@ public class RegisterNewProductDTO {
 
 	private StateDelivery stateDelivery = StateDelivery.AGUARDANDO;
 
-	@NotNull(message = "O usuario é obrigatório")
 	private UserModel user;
 
 	public String getProductName() {

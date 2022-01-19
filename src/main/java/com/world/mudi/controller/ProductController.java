@@ -29,15 +29,14 @@ public class ProductController {
 
 	@PostMapping("/new-product-register")
 	public String registerNewProduct(@Valid RegisterNewProductDTO registerNewProductDTO, BindingResult result) {
-		System.out.println("registerNewProductDTO: " + registerNewProductDTO.getStateDelivery());
-//		if (result.hasErrors()) {
-//			return "newProduct";
-//		}
+		if (result.hasErrors()) {
+			return "newProduct";
+		}
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		UserModel user = userRepository.findByUsername(username);
 
 		registerNewProductDTO.setUser(user);
 		productRequestService.registerProduct(registerNewProductDTO.toNewProduct());
-		return "home";
+		return "redirect:/home";
 	}
 }
