@@ -15,43 +15,47 @@ public class ProductModel {
 	private String productName;
 
 	@Column(nullable = false)
-	private Double price;
-
-	@Column(length = 80, nullable = false)
 	private String description;
 
-	@Column(name = "url_product", length = 170, nullable = false)
+	@Column(name = "url_product", nullable = false)
 	private String urlProduct;
 
-	@Column(name = "url_image", length = 170, nullable = false)
+	@Column(name = "url_image", nullable = false)
 	private String urlImage;
 
 	@ManyToOne
-	@JoinColumn(name = "delivery_id", nullable = false)
+	@JoinColumn(name = "delivery_id")
 	private DeliveryModel delivery;
 
+	@Column(name = "state_delivery", nullable = false)
+	@Enumerated(EnumType.STRING)
+	private StateDelivery stateDelivery;
+
 	@ManyToOne
-	@JoinColumn(name = "user_id", nullable = false)
+	@JoinColumn(name = "user", nullable = false)
 	private UserModel user;
 
 	public ProductModel() {
 	}
 
 	public ProductModel(String productName, LocalDate deliveryDate,
-						Double price, String description, String urlProduct, String urlImage) {
+						String description, String urlProduct, String urlImage) {
 		this.productName = productName;
-		this.price = price;
 		this.description = description;
 		this.urlProduct = urlProduct;
 		this.urlImage = urlImage;
 	}
 
 	public ProductModel(String productName, String urlProduct,
-						String urlImage, String description) {
+						String urlImage, String description,
+						StateDelivery stateDelivery, UserModel user) {
 		this.productName = productName;
 		this.urlProduct = urlProduct;
 		this.urlImage = urlImage;
+		this.delivery = delivery;
 		this.description = description;
+		this.stateDelivery = stateDelivery;
+		this.user = user;
 	}
 
 	public Long getProductId() {
@@ -68,14 +72,6 @@ public class ProductModel {
 
 	public void setProductName(String productName) {
 		this.productName = productName;
-	}
-
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
 	}
 
 	public String getDescription() {
@@ -110,6 +106,14 @@ public class ProductModel {
 		this.delivery = delivery;
 	}
 
+	public StateDelivery getStateDelivery() {
+		return stateDelivery;
+	}
+
+	public void setStateDelivery(StateDelivery stateDelivery) {
+		this.stateDelivery = stateDelivery;
+	}
+
 	public UserModel getUser() {
 		return user;
 	}
@@ -120,15 +124,15 @@ public class ProductModel {
 
 	@Override
 	public String toString() {
-		return "Product{" +
-				"productId:" + productId +
-				", productName:'" + productName + '\'' +
-				", price:" + price +
-				", description:'" + description + '\'' +
-				", urlProduct:'" + urlProduct + '\'' +
-				", urlImage:" + urlImage + '\'' +
-				", delivery:" + delivery +
-				", user:" + user +
+		return "ProductModel{" +
+				"productId=" + productId +
+				", productName='" + productName + '\'' +
+				", description='" + description + '\'' +
+				", urlProduct='" + urlProduct + '\'' +
+				", urlImage='" + urlImage + '\'' +
+				", delivery=" + delivery +
+				", stateDelivery=" + stateDelivery +
+				", user=" + user +
 				'}';
 	}
 }

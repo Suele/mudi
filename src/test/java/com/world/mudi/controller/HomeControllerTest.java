@@ -14,7 +14,6 @@ import java.security.Principal;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 
@@ -36,10 +35,10 @@ public class HomeControllerTest {
 	@Test
 	public void list_products_registered() throws Exception {
 		ProductModel productRequest1 = new ProductModel("nomeDoProduto", LocalDate.now(),
-				670.0, "description", "urlProduct", "urlImage");
+				 "description", "urlProduct", "urlImage");
 
 		ProductModel productRequest2 = new ProductModel("nomeDoProduto", LocalDate.now(),
-				700.0, "description", "urlProduct", "urlImage");
+				 "description", "urlProduct", "urlImage");
 
 		List<ProductModel> listProduct = Arrays.asList(productRequest1, productRequest2);
 

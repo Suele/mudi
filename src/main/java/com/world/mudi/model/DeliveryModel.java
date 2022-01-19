@@ -1,6 +1,7 @@
 package com.world.mudi.model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,12 +13,11 @@ public class DeliveryModel {
 	@Column(name = "delivery_id", nullable = false)
 	private Long deliveryId;
 
-	@Column(nullable = false)
+	@Column(name = "delivery_date", nullable = false)
 	private LocalDate deliveryDate;
 
-	@Column(name = "state_delivery", nullable = false)
-	@Enumerated(EnumType.STRING)
-	private StateDelivery stateDelivery;
+	@Column(name = "price_concerted", nullable = false)
+	private BigDecimal priceConcerted;
 
 	@OneToMany(
 			cascade = CascadeType.ALL,
@@ -29,10 +29,11 @@ public class DeliveryModel {
 	}
 
 	public DeliveryModel(Long deliveryId, LocalDate deliveryDate,
+						 BigDecimal priceConcerted,
 						 StateDelivery stateDelivery, List<ProductModel> products) {
 		this.deliveryId = deliveryId;
 		this.deliveryDate = deliveryDate;
-		this.stateDelivery = stateDelivery;
+		this.priceConcerted = priceConcerted;
 		this.products = products;
 	}
 
@@ -52,12 +53,12 @@ public class DeliveryModel {
 		this.deliveryDate = deliveryDate;
 	}
 
-	public StateDelivery getStateDelivery() {
-		return stateDelivery;
+	public BigDecimal getPriceConcerted() {
+		return priceConcerted;
 	}
 
-	public void setStateDelivery(StateDelivery stateDelivery) {
-		this.stateDelivery = stateDelivery;
+	public void setPriceConcerted(BigDecimal priceConcerted) {
+		this.priceConcerted = priceConcerted;
 	}
 
 	public List<ProductModel> getProducts() {
@@ -73,7 +74,7 @@ public class DeliveryModel {
 		return "Delivery{" +
 				"deliveryId:" + deliveryId +
 				", deliveryDate:" + deliveryDate +
-				", stateDelivery:" + stateDelivery +
+				", priceConcerted:" + priceConcerted +
 				", products:" + products +
 				'}';
 	}

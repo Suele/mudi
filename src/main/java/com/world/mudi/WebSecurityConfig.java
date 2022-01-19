@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/login")
 				.defaultSuccessUrl("/home", true)
 				.permitAll()
-				.and().logout(logout -> logout.logoutUrl("/logout"));
+				.and().logout(logout -> logout.logoutUrl("/logout")).csrf().disable();
 	}
 
 	@Override
@@ -38,14 +38,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		UserDetails user =
 				User.builder()
-						.username("user3")
-						.password(encoder.encode("user3"))
+						.username("user1")
+						.password(encoder.encode("user1"))
 						.roles("USER")
 						.build();
 
 		auth.jdbcAuthentication()
 				.dataSource(dataSource)
-				.passwordEncoder(encoder)
-				.withUser(user);
+				.passwordEncoder(encoder);
 	}
 }
