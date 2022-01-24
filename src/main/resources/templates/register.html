@@ -10,16 +10,26 @@
         <h1 class="my-3 mt-2">Cadastro de Usuario</h1>
         <form class="my-2" th:object="${registerUserDTO}" th:action="@{/user}" method="post">
 
-            <div class="form-group">
-                <label class="form-label">Nome Completo</label>
-                <input class="form-control" type="text" autofocus placeholder="Digite seu nome  completo."
-                       minlength="5" maxlength="90" th:field="*{fullName}" th:errorclass="is-invalid"/>
-                <small class="form-text text-muted">Digite o seu nome completo.</small>
-                <div th:errors="*{fullName}" class="invalid-feedback"></div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="form-label">Nome</label>
+                    <input class="form-control" type="text" autofocus placeholder="Digite seu nome  completo."
+                           minlength="5" maxlength="30" th:field="*{firstName}" th:errorclass="is-invalid"/>
+                    <small class="form-text text-muted">Digite o seu nome.</small>
+                    <div th:errors="*{firstName}" class="invalid-feedback"></div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label class="form-label">Sobrenome</label>
+                    <input class="form-control" type="text" autofocus placeholder="Digite seu sobrenome."
+                           minlength="5" maxlength="50" th:field="*{lastName}" th:errorclass="is-invalid"/>
+                    <small class="form-text text-muted">Digite o seu sobrenome.</small>
+                    <div th:errors="*{lastName}" class="invalid-feedback"></div>
+                </div>
             </div>
 
             <div class="form-group">
-                <label class="form-label">Nome do Usuario</label>
+                <label class="form-label">Nome de Usuario</label>
                 <input class="form-control" type="text" placeholder="Digite o nome do usuario."
                        minlength="5" maxlength="20" th:field="*{username}" th:errorclass="is-invalid"/>
                 <small class="form-text text-muted">Escolha o seu nome de usuário.</small>
