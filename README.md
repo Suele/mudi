@@ -27,8 +27,8 @@ Tela em que usuarios já cadastrados pode acessar a aplicação.
 <br></br>
 
 ##### Cadastro de Usuário
-Para novos usuários terem acesso aplicação é preciso fazer o cadastro.
-[Cadastro de Usuário](images-views/register-user.png)
+Para novos usuários terem acesso á aplicação é preciso fazer o cadastro.
+![Cadastro de Usuário](images-views/register-user.png)
 <br></br>
 
 ##### Modelo Entidade e Relacionamento
