@@ -33,5 +33,5 @@ Para novos usuários terem acesso á aplicação é preciso fazer o cadastro.
 
 ##### Modelo Entidade e Relacionamento
 A imagem abaixo ilustra o relacionamento entre as entidades do banco de dados.
-![Modelo Entidade e Relacionamento](images-views/mudi-bd.drawio.png)
+![Modelo Entidade e Relacionamento](images-views/mudi-bd-refactor.drawio.png)
 <br></br>
