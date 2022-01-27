@@ -11,17 +11,17 @@
         <form class="my-2" method="post" th:action="@{/login}">
 
             <div class="col-md-6 mb-3">
-                <label for="email">nome</label>
+                <label for="email">Nome de usuário</label>
                 <input class="form-control" name="username" placeholder="Digite o seu nome de usuário" type="text"/>
             </div>
 
             <div class="col-md-6 mb-3">
                 <label for="password">Senha</label>
-                <input class="form-control" name="password" placeholder="Digite a sua senha." type="password"/>
+                <input class="form-control" name="password" placeholder="Digite a sua senha que você cadastrou" type="password"/>
             </div>
 
             <div class="col-md-5 mb-3">
-                <a class="navbar-brand" href="/user">Faça o seu cadastro aqui.</a>
+                <a href="/user"><span class="badge-pill badge-light navbar-brand">Faça o seu cadastro aqui</span></a>
             </div>
 
             <div class="col-md-5 mb-3">
