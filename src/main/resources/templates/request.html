@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Header da pagina-->
+<head th:replace="~{base ::  header-default}">
+    <title>Pedidos</title>
+</head>
+<body>
+<!-- Logo da pagina-->
+<div th:replace="~{base :: logo-page}"></div>
+
+<div class="container">
+    <!-- Menu de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/request">Todos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/request/aguardando">Aguardando</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/request/aprovado">Aprovado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/request/entregue">Entregue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="strong nav-link" href="/product/new-product">Novo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Fim Menu de navegação -->
+
+    <!-- Cards de produtos -->
+    <div th:each="product : ${listProducts}">
+        <div class="card">
+            <th:block th:switch="${product.stateDelivery.name()}">
+                <h5 th:case="'AGUARDANDO'" class="card-header card-title alert alert-warning">Produto<span
+                        th:text="${product.productName}"></span></h5>
+                <h5 th:case="'APROVADO'" class="card-header card-title alert alert-info">Produto<span
+                        th:text="${product.productName}"></span></h5>
+                <h5 th:case="'ENTREGUE'" class="card-header card-title alert alert-success">Produto<span
+                        th:text="${product.productName}"></span></h5>
+            </th:block>
+
+            <div class="row">
+                <div class="col-12 col-sm-8">
+                    <div class="card-body">
+                        <p class="card-text">Descrição do Produto<textarea class="form-control"
+                                                                           th:text="${product.description}"></textarea>
+                        </p>
+                        <p class="card-text">Url Produto <input class="form-control"
+                                                                th:value="${product.urlProduct}"/>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 mb-3 col-sm-4 my-5">
+                    <img class="img-thumbnail mx-auto d-block" th:src="${product.urlImage}" width="200"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fim cards de produtos -->
+</div>
+</body>
+</html>

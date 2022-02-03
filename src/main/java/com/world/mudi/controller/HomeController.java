@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -16,8 +15,8 @@ public class HomeController {
 	private ProductRequestService productRequestService;
 
 	@GetMapping("/home")
-	public String home(Model model, Principal principal) {
-		List<ProductModel> listProductRequest = productRequestService.listProducts(principal.getName());
+	public String home(Model model) {
+		List<ProductModel> listProductRequest = productRequestService.listsAllProducts();
 		model.addAttribute("listProductRequest", listProductRequest);
 		return "home";
 	}

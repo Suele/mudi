@@ -12,7 +12,11 @@ public class ProductRequestService {
 	@Autowired
 	private ProductRepository productRepository;
 
-	public List<ProductModel> listProducts(String username) {
+	public List<ProductModel> listsAllProducts() {
+		return productRepository.findAllStateDelivery("AGUARDANDO");
+	}
+
+	public List<ProductModel> listAllProductsByUser(String username) {
 		return productRepository.findAllByUser(username);
 	}
 

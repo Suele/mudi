@@ -1,8 +1,8 @@
 package com.world.mudi.service;
 
-import com.world.mudi.security.ImplementsUserDetails;
 import com.world.mudi.model.UserModel;
 import com.world.mudi.repository.UserRepository;
+import com.world.mudi.security.ImplementsUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetailsService;

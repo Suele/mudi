@@ -35,16 +35,16 @@ public class HomeControllerTest {
 	@Test
 	public void list_products_registered() throws Exception {
 		ProductModel productRequest1 = new ProductModel("nomeDoProduto", LocalDate.now(),
-				 "description", "urlProduct", "urlImage");
+				"description", "urlProduct", "urlImage");
 
 		ProductModel productRequest2 = new ProductModel("nomeDoProduto", LocalDate.now(),
-				 "description", "urlProduct", "urlImage");
+				"description", "urlProduct", "urlImage");
 
 		List<ProductModel> listProduct = Arrays.asList(productRequest1, productRequest2);
 
 
 		Principal principal = null;
-		when(this.productRequestService.listProducts(principal.getName())).thenReturn(listProduct).getMock();
+		when(this.productRequestService.listAllProductsByUser(principal.getName())).thenReturn(listProduct).getMock();
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/home"))
 				.andExpect(MockMvcResultMatchers.view().name("home")).andReturn().getResponse();
 	}

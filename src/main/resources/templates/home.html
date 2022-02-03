@@ -2,6 +2,7 @@
 <html lang="en">
 <!-- Header da pagina-->
 <head th:replace="~{base ::  header-default}">
+    <title>Home</title>
 </head>
 
 <body>
@@ -9,36 +10,7 @@
 <div th:replace="~{base :: logo-page}"></div>
 
 <div class="container">
-    <!-- Menu de navegação -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Todos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Aguardando</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Aprovado</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Entregue</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="strong nav-link" href="product/new-product">Novo</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Corpo da página lista de produtos-->
+    <h1 class="my-5">Novos Produtos Adicionados</h1>
     <div th:each="listProducts : ${listProductRequest}">
         <div class="card">
             <h5 class="card-header card-title">Produto <span th:text="${listProducts.productName}"></span></h5>
@@ -48,11 +20,13 @@
                         <p class="card-text">Descrição do Produto<textarea class="form-control"
                                                                            th:text="${listProducts.description}"></textarea>
                         </p>
-                        <p class="card-text">Url Produto <input class="form-control"
+                        <p class="card-text">Url Produto<input class="form-control"
                                                                 th:value="${listProducts.urlProduct}"/>
                         </p>
                         <div>
-                            <a href="#"><button class="btn btn-outline-primary">Combinar Valor e Entrega</button></a>
+                            <a href="#">
+                                <button class="btn btn-outline-primary">Combinar Valor e Entrega</button>
+                            </a>
                         </div>
                     </div>
                 </div>

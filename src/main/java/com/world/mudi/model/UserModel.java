@@ -99,16 +99,4 @@ public class UserModel {
 	public void setProducts(List<ProductModel> products) {
 		this.products = products;
 	}
-
-	@Override
-	public String toString() {
-		return "UserModel{" +
-				"username='" + username + '\'' +
-				", firstName='" + firstName + '\'' +
-				", lastName='" + lastName + '\'' +
-				", email='" + email + '\'' +
-				", password='" + password + '\'' +
-				", products=" + products +
-				'}';
-	}
 }
