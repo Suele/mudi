@@ -13,14 +13,14 @@
     <h1 class="my-5">Novos Produtos Adicionados</h1>
     <div th:each="listProducts : ${listProductRequest}">
         <div class="card">
-            <h5 class="card-header card-title">Produto <span th:text="${listProducts.productName}"></span></h5>
+            <h5 class="card-header card-title"><span th:text="${listProducts.productName}"></span></h5>
             <div class="row">
                 <div class="col-12 col-sm-8">
                     <div class="card-body">
-                        <p class="card-text">Descrição do Produto<textarea class="form-control"
+                        <p class="card-text">Descrição<textarea class="form-control"
                                                                            th:text="${listProducts.description}"></textarea>
                         </p>
-                        <p class="card-text">Url Produto<input class="form-control"
+                        <p class="card-text">Url<input class="form-control"
                                                                 th:value="${listProducts.urlProduct}"/>
                         </p>
                         <div>
