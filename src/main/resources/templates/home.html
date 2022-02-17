@@ -17,14 +17,14 @@
             <div class="row">
                 <div class="col-12 col-sm-8">
                     <div class="card-body">
-                        <p class="card-text">Descrição<textarea class="form-control"
-                                                                           th:text="${listProducts.description}"></textarea>
+                        <p class="card-text">Descrição
+                            <textarea class="form-control" th:text="${listProducts.description}"></textarea>
                         </p>
-                        <p class="card-text">Url<input class="form-control"
-                                                                th:value="${listProducts.urlProduct}"/>
+                        <p class="card-text">Url
+                            <input class="form-control" th:value="${listProducts.urlProduct}"/>
                         </p>
                         <div>
-                            <a href="#">
+                            <a th:href="@{/delivery/{productId}(productId=${listProducts.productId})}">
                                 <button class="btn btn-outline-primary">Combinar Valor e Entrega</button>
                             </a>
                         </div>
