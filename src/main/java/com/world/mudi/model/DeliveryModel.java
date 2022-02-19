@@ -25,6 +25,15 @@ public class DeliveryModel {
 			mappedBy = "delivery")
 	private List<ProductModel> products;
 
+	@Column(name = "delivery_proposal")
+	@OneToMany(
+			cascade = CascadeType.ALL,
+			orphanRemoval = true,
+			mappedBy = "delivery")
+	private List<UserModel> deliveryProposal;
+
+	private Boolean accept;
+
 	public DeliveryModel() {
 	}
 
@@ -32,6 +41,13 @@ public class DeliveryModel {
 						 BigDecimal priceConcerted,
 						 StateDelivery stateDelivery, List<ProductModel> products) {
 		this.deliveryId = deliveryId;
+		this.deliveryDate = deliveryDate;
+		this.priceConcerted = priceConcerted;
+		this.products = products;
+	}
+
+	public DeliveryModel(LocalDate deliveryDate,
+						 BigDecimal priceConcerted, List<ProductModel> products) {
 		this.deliveryDate = deliveryDate;
 		this.priceConcerted = priceConcerted;
 		this.products = products;
@@ -69,13 +85,23 @@ public class DeliveryModel {
 		this.products = products;
 	}
 
+
+	public Boolean getAccept() {
+		return accept;
+	}
+
+	public void setAccept(Boolean accept) {
+		this.accept = accept;
+	}
+
 	@Override
 	public String toString() {
-		return "Delivery{" +
-				"deliveryId:" + deliveryId +
-				", deliveryDate:" + deliveryDate +
-				", priceConcerted:" + priceConcerted +
-				", products:" + products +
+		return "DeliveryModel{" +
+				"deliveryId=" + deliveryId +
+				", deliveryDate=" + deliveryDate +
+				", priceConcerted=" + priceConcerted +
+				", products=" + products +
+				", accept=" + accept +
 				'}';
 	}
 }
