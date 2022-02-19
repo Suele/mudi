@@ -10,7 +10,7 @@
 <div th:replace="~{base :: logo-page}"></div>
 
 <div class="container">
-    <h1 class="my-5">Novos Produtos Adicionados</h1>
+    <h4 class="my-5">Novos Produtos Adicionados</h4>
     <div th:each="listProducts : ${listProductRequest}">
         <div class="card">
             <h5 class="card-header card-title"><span th:text="${listProducts.productName}"></span></h5>
