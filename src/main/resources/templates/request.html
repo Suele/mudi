@@ -46,7 +46,7 @@
     <div th:each="product : ${listProducts}">
         <div class="card">
             <th:block th:switch="${product.stateDelivery.name()}">
-                <h5 th:case="'AGUARDANDO'" class="card-header card-title alert alert-warning"><span
+                <h5 th:case="'AGUARDANDO'" class="card-header card-title badge-warning"><span
                         th:text="${product.productName}"></span></h5>
                 <h5 th:case="'APROVADO'" class="card-header card-title alert alert-info"><span
                         th:text="${product.productName}"></span></h5>
@@ -58,11 +58,13 @@
                 <div class="col-12 col-sm-8">
                     <div class="card-body">
                         <p class="card-text">Descrição<textarea class="form-control"
-                                                                           th:text="${product.description}"></textarea>
+                                                                th:text="${product.description}"></textarea>
                         </p>
                         <p class="card-text">Url<input class="form-control"
-                                                                th:value="${product.urlProduct}"/>
+                                                       th:value="${product.urlProduct}"/>
                         </p>
+                        <span class="badge badge-pill badge-warning"
+                              th:text="${product.stateDelivery}">Warning</span>
                     </div>
                 </div>
                 <div class="col-12 mb-3 col-sm-4 my-5">
