@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<!-- Header da pagina-->
+<head th:replace="~{base ::  header-default}">
+    <title>Home</title>
+</head>
+
+<body>
+<!-- Logo da pagina-->
+<div th:replace="~{base :: logo-page}"></div>
+
+<div class="container">
+    <h4 class="text-center my-2">Produto Selecionado</h4>
+    <div class="card my-3">
+        <div th:object="${product}">
+            <div class="card">
+                <h5 class="card-header card-title badge-warning"><span th:text="${product.productName}"></span></h5>
+                <div class="row">
+                    <div class="col-12 col-sm-8">
+                        <div class="card-body">
+                            <p class="card-text">Descrição
+                                <textarea class="form-control" th:text="${product.description}"></textarea>
+                            </p>
+                            <p class="card-text">Url
+                                <input class="form-control" th:value="${product.urlProduct}"/>
+                            </p>
+                            <span class="badge badge-pill badge-warning"
+                                  th:text="${product.stateDelivery}">StatusProduto</span>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3 col-sm-4 my-5">
+                        <img class="img-thumbnail mx-auto d-block" th:src="${product.urlImage}" width="200"/>
+                    </div>
+                </div>
+            </div>
+            <!-- Formulario de Envio-->
+            <form class="my-3 mx-3" th:action="@{/delivery}" method="post">
+
+                <div class="col-md-6 mb-3">
+                    <label class="card-text">Quem fez o pedido?</label>
+                    <span class=" form-control" th:text="${product.user.firstName}"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="card-text">Email</label>
+                    <span class=" form-control" th:text="${product.user.email}"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label>Data de Envio do Produto</label>
+                    <input class="form-control" type="date" placeholder="Data de Envio do Produto"/>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Preço do Produto</label>
+                    <input class="form-control" type="number" placeholder="Preço do Produto"/>
+                </div>
+
+                <div class="col-md-7 mb-3">
+                    <button class="btn btn-success btn-lg" type="submit">Enviar Proposta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
