@@ -9,9 +9,15 @@
 <div th:replace="~{base :: logo-page}"></div>
 
 <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Novo Produto</h1>
+            <p class="lead">Adicione os dados do produto que você deseja.</p>
+        </div>
+    </div>
     <!-- Formulario para cadastrar novo produto -->
     <div class="card my-3">
-        <form th:object="${registerNewProductDTO}" class="my-3 mx-3 " name="newProduct"
+        <form th:object="${registerNewProductDTO}" class="my-3 mx-3" name="newProduct"
               title="Formulario para cadastrar novos produtos"
               th:action="@{/product/new-product-register}" method="post">
 

@@ -10,7 +10,14 @@
 <div th:replace="~{base :: logo-page}"></div>
 
 <div class="container">
-    <h4 class="my-5">Novos Produtos Adicionados</h4>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Novos Produtos Adicionados</h1>
+            <p class="lead">Os Últimos produtos adicionados para compra apareceram aqui.</p>
+        </div>
+    </div>
+
     <div th:each="listProducts : ${listProductRequest}">
         <div class="card">
             <h5 class="card-header card-title"><span th:text="${listProducts.productName}"></span></h5>
